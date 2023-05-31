@@ -32,6 +32,15 @@
                             </div>
                         </div>
 
+                       
+                        <div class="sm:col-span-6">
+                            <label for="price" class="block text-sm font-medium text-gray-700">Цена </label>
+                            <div class="mt-1">
+                                <input type="number" id="price" name="price" min="0.00" max="10000.00"
+                                    class="block w-full  appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                            </div>
+                        </div>
+
                         <div class="sm:col-span-6 pt-5">
                             <label for="description" class="block text-sm font-medium text-gray-700">Описание</label>
                             <div class="mt-1">
@@ -39,11 +48,12 @@
                                     class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
                             </div>
                         </div> 
+                        
 
                         <div class="sm:col-span-6 pt-5">
                             <label for="category" class="block text-sm font-medium text-gray-700">Категория</label>
                             <div class="mt-1">
-                                <select id="category" name="category[]" multiple class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5">
+                                <select id="categories" name="categories[]" multiple class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5 form-multiselect">
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach

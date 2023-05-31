@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MenuStoreRequest;
 use App\Models\Category;
 use App\Models\Menu;
 use Illuminate\Http\Request;
@@ -36,10 +37,21 @@ class MenuController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request
      */
-    public function store(Request $request)
+    public function store(MenuStoreRequest $request)
     {
-        //
+        $image = $request->file('image')->store('public/menus');
+
+        Menu::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'image' => $image,
+            'price' => $request->price,
+        ]);
+
+        return redirect()->route('admin.categories.index');
     }
 
     /**
