@@ -38,6 +38,17 @@
                                 <textarea id="description" name="description" rows="3" 
                                     class="shadow-sm focus:ring-indigo-500 appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
                             </div>
+                        </div> 
+
+                        <div class="sm:col-span-6 pt-5">
+                            <label for="description" class="block text-sm font-medium text-gray-700">Описания</label>
+                            <div class="mt-1">
+                                <select multiple>
+                                    @foreach ($categories as $category)
+                                        <option>{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         <div class="px-6 py-4">
                             <button type="submit" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Сохранить</button>

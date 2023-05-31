@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Menu;
 use Illuminate\Http\Request;
+
+
 
 class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * 
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -19,11 +24,15 @@ class MenuController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     * 
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('admin.menus.create');
+        $categories = Category::all();
+        return view('admin.menus.create', compact('categories'));
     }
+
 
     /**
      * Store a newly created resource in storage.
