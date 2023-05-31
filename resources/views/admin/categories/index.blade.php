@@ -26,7 +26,7 @@
                                 Описание
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                <span class="sr-only">Edit</span>
+                                Действия
                             </th>
                         </tr>
                     </thead>
