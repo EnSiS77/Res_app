@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Symfony\Contracts\Service\Attribute\Required;
 
-class MenuStoreRequest extends FormRequest
+class TableStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +22,10 @@ class MenuStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'          => ['required'],
-            'description'   => ['required'],
-            'price'         => ['required'],
-            'image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048', // Validation for image file
+            'name' => ['required'],
+            'guest_number' => ['required'],
+            'status' => ['required'],
+            'location' => ['required'],
         ];
     }
 }
