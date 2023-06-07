@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-end m-2 p-2">
-                <a href="{{ route('admin.menus.create') }}"
+                <a href="{{ route('admin.reservation.create') }}"
                     class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Добавить блюдо в меню</a>
             </div>
 
@@ -26,7 +26,7 @@
                                 Дата бронирования
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Столик  №
+                                Столик
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Количество гостей
@@ -50,7 +50,7 @@
                                     {{ $reservation->res_date }}
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $reservation->table_id }} 
+                                    {{ $reservation->table->name }} 
                                 </td>
                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{ $reservation->guest_number }} 
