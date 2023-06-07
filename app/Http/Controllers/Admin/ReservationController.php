@@ -35,7 +35,8 @@ class ReservationController extends Controller
     {
         Reservation::create($request->validated());
 
-        return redirect()->route('admin.reservation.index');
+        return redirect()->route('admin.reservation.index')
+            ->with('success', 'Бронирование успешно создано!');
     }
 
     /**

@@ -23,7 +23,7 @@
                                 Email
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Дата бронирования
+                                На время:
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Столик

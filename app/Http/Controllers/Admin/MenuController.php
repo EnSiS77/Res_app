@@ -54,7 +54,8 @@ class MenuController extends Controller
             $menu->categories()->attach($request->categories);
         }
 
-        return redirect()->route('admin.menus.index');
+        return redirect()->route('admin.menus.index')
+            ->with('success', 'Меню успешно  создано!');
     }
 
 
@@ -91,7 +92,8 @@ class MenuController extends Controller
             $menu->categories()->sync($request->categories);
         }
 
-        return redirect()->route('admin.menus.index');
+        return redirect()->route('admin.menus.index')
+            ->with('success', 'Меню успешно обновлено!');
     }
 
     /**
@@ -103,6 +105,6 @@ class MenuController extends Controller
         $menu->categories()->detach();
         $menu->delete();
         
-        return to_route('admin.menus.index')->with('danger', 'Menu deleted successfully.');
+        return to_route('admin.menus.index')->with('danger', 'Меню успешно удалено!');
     }
 }

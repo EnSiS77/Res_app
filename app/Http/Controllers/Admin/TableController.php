@@ -39,7 +39,8 @@ class TableController extends Controller
             'location' => $request->location,
         ]);
 
-        return redirect()->route('admin.tables.index');
+        return redirect()->route('admin.tables.index')
+            ->with('success', 'Столик успешно создан!');
     }
 
     /**
@@ -65,7 +66,8 @@ class TableController extends Controller
     {
         $table->update($request->validated());
 
-        return redirect()->route('admin.tables.index');
+        return redirect()->route('admin.tables.index')
+            ->with('success', 'Столик успешно обновлен!');
 
     }
 
@@ -74,9 +76,11 @@ class TableController extends Controller
      */
     public function destroy(Table $table)
     {
+        $table->reservations()->delete();
         $table->delete();
 
-        return redirect()->route('admin.tables.index');
+        return redirect()->route('admin.tables.index')
+            ->with('danger', 'Столик успешно удален!');
 
     }
 }
