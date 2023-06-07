@@ -22,7 +22,7 @@
                             <label for="name" class="block text-sm font-medium text-gray-700"> Имя </label>
                             <div class="mt-1">
                                 <input type="text" id="name" name="name" value="{{ $table->name }}"
-                                    class="block w-full  appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                    class="block w-full  appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('name') border-red-400 @enderror" />
                             </div>
                         </div>
 
@@ -32,14 +32,14 @@
                             </label>
                             <div class="mt-1">
                                 <input type="number" id="guest_number" name="guest_number" value="{{ $table->guest_number }}" min="1"
-                                    class="block w-full  appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
+                                    class="block w-full  appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5  @error('guest_number') border-red-400 @enderror" />
                             </div>
                         </div>
 
                         <div class="sm:col-span-6 pt-5">
                             <label for="status" class="block text-sm font-medium text-gray-700">Статус</label>
                             <div class="mt-1">
-                                <select id="status" name="status" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5 form-multiselect">
+                                <select id="status" name="status" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5 form-multiselect ">
 
                                     @foreach (App\Enums\TableStatus::cases() as $status)
                                     <option value="{{ $status->value }}" @selected($table->status->value == $status->value)>{{ $status->name }}</option>
@@ -52,7 +52,7 @@
                         <div class="sm:col-span-6 pt-5">
                             <label for="location" class="block text-sm font-medium text-gray-700">Локация</label>
                             <div class="mt-1">
-                                <select id="location" name="location" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5 form-multiselect">
+                                <select id="location" name="location" class="block w-full appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal transition duration-150 ease-in-out sm:text-sm sm:leading-5 form-multiselect ">
 
                                     @foreach (App\Enums\TableLocation::cases() as $location)
                                     <option value="{{ $location->value }}" @selected($table->location->value == $location->value)>{{ $location->name }}</option>
