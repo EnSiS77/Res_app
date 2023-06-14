@@ -20,7 +20,7 @@
                                 ФИО
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Email
+                                Email:
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 На время:
