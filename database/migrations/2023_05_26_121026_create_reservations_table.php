@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reservations', function (Blueprint $table) {
+            $table->id();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
@@ -20,6 +21,9 @@ return new class extends Migration
             $table->unsignedBigInteger('table_id');
             $table->integer('guest_number');
             $table->timestamps();
+
+            $table->foreign('table_id')->references('id')->on('tables')->onDelete('cascade');
+
         });
     }
 

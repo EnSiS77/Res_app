@@ -24,7 +24,7 @@ class CategoryStoreRequest extends FormRequest
         return [
             'name' => 'required',
             'description' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048', // Validation for image file
+            'image' => 'required', 'image|mimes:jpeg,png,jpg,gif,webp|max:2048', // Validation for image file
         ];
     }
     

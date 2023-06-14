@@ -2,9 +2,12 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Reservation;
 use App\Rules\DateBetween;
 use App\Rules\TimeBetween;
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class ReservationStoreRequest extends FormRequest
 {
@@ -23,11 +26,14 @@ class ReservationStoreRequest extends FormRequest
      */
     public function rules(): array
     {
+
+        
+
         return [
             'first_name'  => ['required'],
             'last_name'  => ['required'],
             'email'  => ['required'],
-            'res_date'  => ['required', 'date', new DateBetween, new TimeBetween],
+            'res_date'  => ['required', 'date_format:Y-m-d\TH:i', 'date', new DateBetween, new TimeBetween],
             'tel_number'  => ['required'],
             'table_id'  => ['required'],
             'guest_number'  => ['required'],

@@ -16,13 +16,15 @@ class TimeBetween implements Rule
      */
     public function passes($attribute, $value)
     {
-        $pickupTime = Carbon::parse($value);
-
-        // When the restaurant is open
-        $earliestTime = Carbon::createFromTimeString('17:00:00');
-        $lastTime = Carbon::createFromTimeString('23:00:00');
-
-        return $pickupTime->between($earliestTime, $lastTime);
+        $pickupDateTime = Carbon::parse($value);
+        $earliestDateTime = Carbon::parse('17:00:00');
+        $latestDateTime = Carbon::parse('23:00:00');
+    
+        $pickupDate = $pickupDateTime->format('Y-m-d');
+        $earliestDateTime->setDate($pickupDateTime->year, $pickupDateTime->month, $pickupDateTime->day);
+        $latestDateTime->setDate($pickupDateTime->year, $pickupDateTime->month, $pickupDateTime->day);
+    
+        return $pickupDateTime->between($earliestDateTime, $latestDateTime);
     }
 
     /**

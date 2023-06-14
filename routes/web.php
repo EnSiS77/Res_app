@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\WelcomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+//Навигация по сайту
 Route::get('/', [WelcomeController::class, 'index']);
 Route::get('/categories', [FrontendCategoryController::class, 'index'])->name('categories.index');
 Route::get('/categories/{category}', [FrontendCategoryController::class, 'show'])->name('categories.show');
@@ -20,7 +21,7 @@ Route::get('/reservation/step-one', [FrontendReservationController::class, 'step
 Route::get('/reservation/step-two', [FrontendReservationController::class, 'stepTwo'])->name('reservations.step.two');
 
 
-
+//Рекистрация \ авторизация
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -32,7 +33,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-
+//Адимн панель
 Route::middleware(['auth', 'admin'])->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::resource('/categories', CategoryController::class);
