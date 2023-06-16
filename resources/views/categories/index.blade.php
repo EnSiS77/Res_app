@@ -1,8 +1,5 @@
 <x-guest-layout>
-
-
-
-    <div class="container w-full px-5 py-6 mx-auto">
+    <div class="container w-full px-5 py-6 mb-6 mx-auto">
         <div class="grid lg:grid-cols-4 gap-y-6">
             @foreach ($categories as $category)
                 <div class="max-w-xs mx-4 mb-2 rounded-lg shadow-lg">
@@ -16,11 +13,8 @@
                         <a href="{{ route('categories.show', $category->id) }}"><button
                                 class="px-6 py-2 bg-green-600 text-green-50 hover:text-green-400 rounded-lg">Подробнее</button></a>
                     </div>
+                </div>
             @endforeach
-
-
-
         </div>
     </div>
-
 </x-guest-layout>
