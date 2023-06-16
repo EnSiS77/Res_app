@@ -91,7 +91,7 @@ class ReservationController extends Controller
         $reservations = $table->reservations()->where('id', '!=', $reservation->id)->get();
         foreach ($reservations as $res) {
             $reservation_date = Carbon::parse($res->res_date); // Parse the string into a Carbon instance
-            if ($reservation_date->format('Y-m-d\H:i') == $request_date->format('Y-m-d\TH:i')) {
+            if ($reservation_date->format('Y-m-d\H:i') == $request_date->format('Y-m-d\H:i')) {
                 return back()
                     ->with('warning', 'Этот столик уже забронирован на это время')
                     ->withInput();

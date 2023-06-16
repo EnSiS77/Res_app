@@ -62,7 +62,7 @@
                                         <form action="{{ route('admin.reservation.destroy', $reservation->id) }}"
                                             class="px-4 py-2 bg-red-500 hover:bg-red-700 rounded-lg text-white"
                                             method="POST"
-                                            onsubmit="return confirm('Вы действительно хотите удалить блюдо с меню?')">
+                                            onsubmit="return confirm('Вы действительно хотите удалить бронирование?')">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit">Удалить</button>
