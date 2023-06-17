@@ -26,7 +26,7 @@ class MenuStoreRequest extends FormRequest
             'name'          => ['required'],
             'description'   => ['required'],
             'price'         => ['required'],
-            'image' => ['required', 'image|mimes:jpeg,png,jpg,gif,webp|max:2048'], // Validation for image file
+            'image' => 'required', 'image|mimes:jpeg,png,jpg,gif,JPG,svg,webp', // Validation for image file
         ];
     }
 }
