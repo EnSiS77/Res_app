@@ -47,14 +47,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Category $category)
@@ -82,7 +74,7 @@ class CategoryController extends Controller
         $category->update([
             'name'         => $request->name,
             'description'  => $request->description,
-            'image'         => $image,
+            'image'        => $image,
         ]);
 
         return redirect()->route('admin.categories.index')
@@ -92,12 +84,13 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category) 
     {
         Storage::delete($category->image);
         $category->menus()->detach();
         $category->delete();
 
-        return to_route('admin.categories.index')->with('danger', 'Категория удалена успешно!');
+        return redirect()->route('admin.categories.index')
+            ->with('danger', 'Категория успешно удалена!');
     }
 }

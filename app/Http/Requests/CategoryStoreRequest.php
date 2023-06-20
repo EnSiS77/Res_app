@@ -22,9 +22,9 @@ class CategoryStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'description' => 'required',
-            'image' => 'required', 'required', 'image|mimes:jpeg,png,jpg,gif,JPG,svg,webp|max:2048', // Validation for image file
+            'name' => ['required'],
+            'description' => ['required'],
+            'image' => 'required', 'image|mimes:jpeg,png,jpg,gif,JPG,svg,webp|max:2048', // Validation for image file
         ];
     }
     
